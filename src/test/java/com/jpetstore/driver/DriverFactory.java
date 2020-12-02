@@ -2,10 +2,13 @@ package com.jpetstore.driver;
 
 import com.jpetstore.util.PropKey;
 import com.jpetstore.util.PropertyReader;
+import com.jpetstore.util.TimeUtil;
 import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static com.jpetstore.util.TimeUtil.*;
 import static com.jpetstore.util.TimeUtil.getImplicitWait;
 
 public class DriverFactory {
@@ -25,7 +28,7 @@ public class DriverFactory {
         }
 
         driverThreadLocal.get().manage().timeouts()
-                .implicitlyWait(getImplicitWait(), TimeUnit.SECONDS);
+                .implicitlyWait(Duration.ofSeconds(getImplicitWait()));
 
         return driverThreadLocal.get();
     }

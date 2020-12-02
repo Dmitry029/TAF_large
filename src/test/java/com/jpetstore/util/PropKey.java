@@ -12,7 +12,8 @@ public enum PropKey {
     GECKO_DRIVER_PATH("geckoDriverPath"),
 
     //Timeouts
-    IMPLICIT_WAIT("implicitWait");
+    IMPLICIT_WAIT("implicitWait"),
+    EXPLICIT_WAIT("explicitWait");
 
 
 
