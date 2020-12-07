@@ -13,8 +13,11 @@ public enum PropKey {
 
     //Timeouts
     IMPLICIT_WAIT("implicitWait"),
-    EXPLICIT_WAIT("explicitWait");
+    EXPLICIT_WAIT("explicitWait"),
 
+    //Screenshot
+    SCREEN_SHOT("screenShot"),
+    ELEMENT_SCREEN_SHOT("elementScreenShot");
 
 
     private String propVal;

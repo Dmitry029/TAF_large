@@ -1,15 +1,51 @@
 package com.jpetstore.test;
 
-import com.jpetstore.driver.DriverManager;
-import com.jpetstore.pages.BasePage;
+import com.jpetstore.steps.JPetStoreSteps;
+import com.jpetstore.util.TestListener;
+import io.qameta.allure.Description;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-public class LoginTest extends DriverManager {
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+@ExtendWith(TestListener.class)
+@DisplayName("Login Tests")
+public class LoginTest extends JPetStoreSteps {
 
     @Test
+    @DisplayName("The valid credential should be provided to log in")
+    @Description("Logging into the app via sign on page")
     void doLogin() {
-        BasePage basePage = new BasePage(getDriver());
-        basePage.navigateToApp();
-        basePage.navigateToSignInPage();
+        navigateToApp();
+        navigateToSignInPage();
+        doLogin("test", "test321");
+        assertEquals("Welcome Dzmitry!3", getGreetingMessage());
+
+        //soft assertion example
+        assertAll(
+                () -> assertEquals("Welcome Dzmitry!", getGreetingMessage())
+                //,() -> assertEquals("Welcome John!", getGreetingMessage())
+        );
+    }
+
+    @Nested
+    class NegativeTests {
+
+        @Test
+        @DisplayName("User mustn't be login with invalid credentials")
+        @Description("Logging into the app via sign on page. OInvalid credentials.")
+        void invalidLogin() {
+            navigateToApp();
+            navigateToSignInPage();
+            doLogin("test", "test");
+
+            assertEquals("Invalid username or password. Signon failed.",
+                    getMessageOnInvalidLogIn());
+
+        }
     }
 }

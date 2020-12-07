@@ -30,8 +30,9 @@ public enum BrowserType implements DriverSetup {
             chromeOptions.addArguments("--start-maximized");
             chromeOptions.addArguments("--ignore-certificate-errors");
             chromeOptions.addArguments("--disable-popup-blocking");
-            chromeOptions.addArguments("--incognito");
-            chromeOptions.addArguments("--window-size=1920,1080");
+            //chromeOptions.addArguments("--incognito");
+            chromeOptions.addArguments("start-maximized");
+            //chromeOptions.addArguments("--window-size=1920,1080");
             chromeOptions.setAcceptInsecureCerts(true);
 
             return chromeOptions;

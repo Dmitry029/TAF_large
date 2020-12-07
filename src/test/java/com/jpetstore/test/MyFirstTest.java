@@ -1,12 +1,14 @@
 package com.jpetstore.test;
 
 import com.jpetstore.driver.DriverManager;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.jpetstore.util.PropKey.*;
+import static com.jpetstore.util.PropKey.PORT;
+import static com.jpetstore.util.PropKey.URL;
 
-
+@Disabled
 @DisplayName("My browser tests")
 public class MyFirstTest extends DriverManager {
 

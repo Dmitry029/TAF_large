@@ -15,12 +15,11 @@
         <junit-platform-launcher.version>1.7.0</junit-platform-launcher.version>
         <allure-junit5.version>2.13.7</allure-junit5.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <aspectj.version>1.8.10</aspectj.version>
     </properties>
-
 
 
     <dependencies>
@@ -70,6 +69,14 @@
             <version>4.2.2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -97,9 +104,9 @@
                         <version>1.2.0</version>
                     </dependency>
                     <dependency>
-                    <groupId>org.aspectj</groupId>
-                    <artifactId>aspectjweaver</artifactId>
-                    <version>${aspectj.version}</version>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
