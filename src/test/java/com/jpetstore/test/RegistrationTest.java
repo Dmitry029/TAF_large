@@ -49,7 +49,7 @@ public class RegistrationTest extends JPetStoreSteps {
 
 
         //Login & verify account creation
-        clickSignInLink();
+       // clickSignInLink();
         doLogin(userName, password);
         String greetingMsg = getGreetingMessage();
 

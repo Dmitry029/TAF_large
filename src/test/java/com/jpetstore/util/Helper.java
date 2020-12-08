@@ -27,13 +27,20 @@ public class Helper {
         return baseUrl + port;
     }
 
-
+    /**
+     * Check property if page screenshot should be taken
+     *
+     * @param driver
+     * @param name
+     * @return
+     */
     public static synchronized boolean takeScreenShot
-            (WebDriver driver, String name) {
+    (WebDriver driver, String name) {
 
         boolean isScreenShot = PropertyReader.getInstance()
                 .getProperty(PropKey.SCREEN_SHOT.getPropVal())
                 .equalsIgnoreCase("ENABLE");
+
         if (isScreenShot) {
             attachScreenShot(driver, name);
             return true;
@@ -52,16 +59,24 @@ public class Helper {
     @Attachment(value = "{name}", type = "image/png")
     private static synchronized byte[] attachScreenShot(WebDriver driver
             , String name) {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    public static synchronized boolean takeElementScreenShot
-            (WebElement element, String name) {
+    /**
+     * Check property if element screenshot should be taken
+     *
+     * @param element
+     * @param name
+     * @return
+     */
+    public static synchronized boolean takeElementScreenShot(WebElement element
+            , String name) {
 
         boolean isScreenShot = PropertyReader.getInstance()
                 .getProperty(PropKey.ELEMENT_SCREEN_SHOT.getPropVal())
                 .equalsIgnoreCase("ENABLE");
+
         if (isScreenShot) {
             attachElementScreenShot(element, name);
             return true;
@@ -71,8 +86,8 @@ public class Helper {
     }
 
     @Attachment(value = "{name}", type = "image/png")
-    private static synchronized byte[] attachElementScreenShot
-            (WebElement element, String name) {
+    private static synchronized byte[] attachElementScreenShot(WebElement element
+            , String name) {
 
         return element.getScreenshotAs(OutputType.BYTES);
     }

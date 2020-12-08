@@ -5,6 +5,7 @@ import com.jpetstore.pages.AccountPage;
 import com.jpetstore.pages.BasePage;
 import com.jpetstore.pages.DashboardPage;
 import com.jpetstore.pages.LoginPage;
+import com.jpetstore.util.Helper;
 import io.qameta.allure.Step;
 
 
@@ -36,6 +37,8 @@ public class JPetStoreSteps extends DriverManager {
     //LOGIN PAGE STEPS
     @Step("Logging in with username: {0} & password: {1}")
     public DashboardPage doLogin(String userName, String password) {
+        basePage.clickSignInLink();
+        Helper.takeScreenShot(driver, "doLogin");
         return loginPage.doLogin(userName, password);
     }
 

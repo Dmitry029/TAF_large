@@ -20,7 +20,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <aspectj.version>1.8.10</aspectj.version>
 
-        <group>SMOKE</group>
+        <group>REGISTRATION</group>
 
     </properties>
 

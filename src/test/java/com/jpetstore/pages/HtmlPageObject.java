@@ -2,6 +2,7 @@ package com.jpetstore.pages;
 
 import com.jpetstore.driver.DriverManager;
 import com.jpetstore.util.Helper;
+import com.jpetstore.util.LogHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -73,10 +74,14 @@ public class HtmlPageObject extends DriverManager {
         enterTextIntoTextBox(textBox, text);
     }
 
-    public void enterTextIntoTextBox(WebElement element, String text) {
-        element.clear();
-        element.sendKeys(text);
-        Helper.takeElementScreenShot(element, "textBox");
+    public void enterTextIntoTextBox(WebElement textBox, String text) {
+        textBox.clear();
+        textBox.sendKeys(text);
+
+        Helper.takeElementScreenShot(textBox, "textBox");
+
+        LogHelper.logToReport("Typing text : " + text + " inside text Box " +
+                "Web element: " + textBox.toString());
     }
 
     /**
@@ -158,6 +163,7 @@ public class HtmlPageObject extends DriverManager {
 
     /**
      * Method to check if text is present on the page
+     *
      * @param text
      * @return
      */
