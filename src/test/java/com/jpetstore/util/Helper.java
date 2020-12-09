@@ -73,16 +73,14 @@ public class Helper {
     public static synchronized boolean takeElementScreenShot(WebElement element
             , String name) {
 
-        boolean isScreenShot = PropertyReader.getInstance()
-                .getProperty(PropKey.ELEMENT_SCREEN_SHOT.getPropVal())
-                .equalsIgnoreCase("ENABLE");
+        String getElementScreenShot =
+                SystemPropertyHelper.getElementScreenShotValue();
 
-        if (isScreenShot) {
+        if (getElementScreenShot.equalsIgnoreCase("ENABLE")) {
             attachElementScreenShot(element, name);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     @Attachment(value = "{name}", type = "image/png")

@@ -14,13 +14,21 @@
         <junit-jupiter-api.version>5.7.0</junit-jupiter-api.version>
         <junit-platform-launcher.version>1.7.0</junit-platform-launcher.version>
         <allure-junit5.version>2.13.7</allure-junit5.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
         <java.version>1.8</java.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <aspectj.version>1.8.10</aspectj.version>
 
-        <group>REGISTRATION</group>
+        <group>REGRESSION</group>
+        <!--<group>SMOKE</group>-->
+        <!--<group></group>-->
+
+        <!-- SureFire properties -->
+        <surefire.forkCount>1C</surefire.forkCount>
+        <surefire.reuseForks>false</surefire.reuseForks>
+        <surefire.threadCount>3</surefire.threadCount>
+        <surefire.parallel>methods</surefire.parallel>
 
     </properties>
 
@@ -87,6 +95,43 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/ooxml-schemas -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>ooxml-schemas</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>3.0.2</version>
+        </dependency>
 
     </dependencies>
 
@@ -102,7 +147,16 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
 
+                    <parallel>${surefire.parallel}</parallel>
+                    <forkCount>${surefire.forkCount}</forkCount>
+                    <reuseForks>${surefire.reuseForks}</reuseForks>
+                    <threadCount>${surefire.threadCount}</threadCount>
+
                     <groups>${group}</groups>
+
+                    <systemPropertyVariables>
+                        <elementScreenShot>DISABLE</elementScreenShot>
+                    </systemPropertyVariables>
 
                     <systemProperties>
                         <property>

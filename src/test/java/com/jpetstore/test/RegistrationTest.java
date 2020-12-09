@@ -2,6 +2,7 @@ package com.jpetstore.test;
 
 import com.github.javafaker.Faker;
 import com.jpetstore.steps.JPetStoreSteps;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RegistrationTest extends JPetStoreSteps {
 
     @Tag(REGISTRATION)
+    //@RepeatedIfExceptionsTest(repeats = 1)
     @Test
     @DisplayName("Add a new user to the store & verify if the user can login")
     void addNewUserToStoreAndVerifyLogin() {
@@ -49,7 +51,6 @@ public class RegistrationTest extends JPetStoreSteps {
 
 
         //Login & verify account creation
-       // clickSignInLink();
         doLogin(userName, password);
         String greetingMsg = getGreetingMessage();
 

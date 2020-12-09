@@ -1,0 +1,4 @@
+userName,password,repeatPassword,firstName,lastName,email,phone,addr1,addr2,city,state,zipCode,country
+John1,test1,test1,John1,Doe1,test1@mail.com,9999999999,Mcr11,U11,Minsk,NB,220000,Belarus
+John2,test2,test2,John2,Doe2,test2@mail.com,9999999999,Mcr22,U22,Minsk,NB,220000,Belarus
+John3,test3,test3,John3,Doe3,test3@mail.com,9999999999,Mcr33,U33,Minsk,NB,220000,Belarus
