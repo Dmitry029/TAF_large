@@ -20,9 +20,9 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <aspectj.version>1.8.10</aspectj.version>
 
-        <group>REGRESSION</group>
+        <!--<group>REGRESSION</group>-->
         <!--<group>SMOKE</group>-->
-        <!--<group></group>-->
+        <group></group>
 
         <!-- SureFire properties -->
         <surefire.forkCount>1C</surefire.forkCount>
@@ -156,6 +156,11 @@
 
                     <systemPropertyVariables>
                         <elementScreenShot>DISABLE</elementScreenShot>
+
+                        <hubUrl></hubUrl>
+                        <remote></remote>
+                        <browser></browser>
+
                     </systemPropertyVariables>
 
                     <systemProperties>

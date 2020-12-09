@@ -3,9 +3,14 @@ package com.jpetstore.driver;
 import com.jpetstore.util.PropKey;
 import com.jpetstore.util.PropertyReader;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
+import static com.jpetstore.util.Helper.getHubUrl;
+import static com.jpetstore.util.Helper.isRemote;
 import static com.jpetstore.util.TimeUtil.getImplicitWait;
 
 public class DriverFactory {
@@ -21,7 +26,17 @@ public class DriverFactory {
      */
     public static WebDriver getDriver() {
         if (driver == null) {
-            driverThreadLocal.set(getBrowser().getWebDriver());
+
+            if (isRemote()) {
+                try {
+                    driverThreadLocal.set(new RemoteWebDriver(new URL(getHubUrl()),
+                            getBrowser().getBrowserCapabilities()));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                driverThreadLocal.set(getBrowser().getWebDriver());
+            }
         }
 
         driverThreadLocal.get().manage().timeouts()

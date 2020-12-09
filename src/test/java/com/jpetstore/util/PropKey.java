@@ -20,7 +20,11 @@ public enum PropKey {
     ELEMENT_SCREEN_SHOT("elementScreenShot"),
 
     //Allure report
-    ALLURE_REPORT_STEP_LOG("allureReportStepLog");
+    ALLURE_REPORT_STEP_LOG("allureReportStepLog"),
+
+    //Selenium grid
+    REMOTE("remote"),
+    HUB_URL("hubUrl");
 
 
 

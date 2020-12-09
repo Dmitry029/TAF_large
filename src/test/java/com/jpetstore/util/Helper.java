@@ -2,6 +2,7 @@ package com.jpetstore.util;
 
 
 import io.qameta.allure.Attachment;
+import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -88,5 +89,32 @@ public class Helper {
             , String name) {
 
         return element.getScreenshotAs(OutputType.BYTES);
+    }
+
+    /**
+     * Method check if property to run test in remote (in grid) is true
+     *
+     * @return
+     */
+    public static boolean isRemote() {
+        boolean isRemote = PropertyReader.getInstance()
+                .getProperty(PropKey.REMOTE.getPropVal())
+                .equalsIgnoreCase("TRUE");
+
+        return isRemote;
+    }
+
+    /**
+     * Method to return hub URL
+     *
+     * @return
+     */
+    public static String getHubUrl() {
+        return PropertyReader.getInstance()
+                .getProperty(PropKey.HUB_URL.getPropVal());
+    }
+
+    public static boolean getBrowserPath() {
+        return SystemUtils.IS_OS_WINDOWS;
     }
 }
