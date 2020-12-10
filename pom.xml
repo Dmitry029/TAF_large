@@ -25,11 +25,11 @@
         <group></group>
 
         <!-- SureFire properties -->
-        <!--<surefire.forkCount>1C</surefire.forkCount>-->
-        <surefire.forkCount>1</surefire.forkCount>
+        <!--<surefire.forkCount>1</surefire.forkCount>-->
+        <surefire.forkCount>1C</surefire.forkCount>
         <surefire.reuseForks>false</surefire.reuseForks>
-        <!--<surefire.threadCount>3</surefire.threadCount>-->
-        <surefire.threadCount>1</surefire.threadCount>
+        <!--<surefire.threadCount>1</surefire.threadCount>-->
+        <surefire.threadCount>3</surefire.threadCount>
         <surefire.parallel>methods</surefire.parallel>
 
     </properties>
