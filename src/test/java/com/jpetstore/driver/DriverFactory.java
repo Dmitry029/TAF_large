@@ -2,7 +2,9 @@ package com.jpetstore.driver;
 
 import com.jpetstore.util.PropKey;
 import com.jpetstore.util.PropertyReader;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -35,7 +37,11 @@ public class DriverFactory {
                     e.printStackTrace();
                 }
             } else {
-                driverThreadLocal.set(getBrowser().getWebDriver());
+                driverThreadLocal.set(BrowserType.CHROME.getWebDriver());
+
+
+                /*WebDriverManager.chromedriver().setup();
+                driverThreadLocal.set(new ChromeDriver());*/
             }
         }
 
