@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static com.jpetstore.util.PropKey.PORT;
 import static com.jpetstore.util.PropKey.URL;
 
-@Disabled
+//@Disabled
 @DisplayName("My browser tests")
 public class MyFirstTest extends DriverManager {
 
@@ -23,7 +23,7 @@ public class MyFirstTest extends DriverManager {
         driver.get(finalUrl);
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
