@@ -37,11 +37,7 @@ public class DriverFactory {
                     e.printStackTrace();
                 }
             } else {
-                driverThreadLocal.set(BrowserType.CHROME.getWebDriver());
-
-
-                /*WebDriverManager.chromedriver().setup();
-                driverThreadLocal.set(new ChromeDriver());*/
+                driverThreadLocal.set(getBrowser().getWebDriver());
             }
         }
 
